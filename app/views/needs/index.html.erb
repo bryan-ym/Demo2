@@ -1,0 +1,43 @@
+﻿<div id="need_list">
+<h1>需求列表</h1>
+<hr/>
+<%= button_to '新建需求', new_need_path, :method => :get  %>
+<br/>
+
+
+<table>
+  <tr>
+    <th>SN</th>
+    <th>需求名称</th>
+    <th>需求描述</th>
+    <th>涉及产品线</th>
+    <th>需求提交者</th>
+    <th>联系电话</th>
+    <th>联系方式</th>
+    <th>需求状态</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @needs.each do |need| %>
+  <tr class="<%=cycle('list_line_odd','list_line_even') %>">
+    <td><%= need.id %></td>
+    <td><%= need.title %></td>
+    <td><%= truncate(strip_tags(need.description),:length=>10) %></td>
+    <td><%= need.productline %></td>
+    <td><%= need.submitter %></td>
+    <td><%= need.s_phone %></td>
+    <td><%= need.s_address %></td>
+    <td><%= need.status %></td>
+    <td><%= link_to '查看', need %></td>
+    <td><%= link_to '编辑', edit_need_path(need) %></td>
+    <td><%= link_to '删除', need, :confirm => 'Are you sure?', :method => :delete %></td>
+  
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to '新建需求', new_need_path %>

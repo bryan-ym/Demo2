@@ -1,0 +1,40 @@
+﻿<p id="notice"><%= notice %></p>
+
+<p>
+  <b>需求名称:</b>
+  <%= @need.title %>
+</p>
+
+<p>
+  <b>需求描述:</b>
+  <%= @need.description %>
+</p>
+
+<p>
+  <b>涉及产品线:</b>
+  <%= @need.productline %>
+</p>
+
+<p>
+  <b>需求提交人:</b>
+  <%= @need.submitter %>
+</p>
+
+<p>
+  <b>联系电话:</b>
+  <%= @need.s_phone %>
+</p>
+
+<p>
+  <b>联系方式:</b>
+  <%= @need.s_address %>
+</p>
+
+<p>
+  <b>需求状态:</b>
+  <%= @need.status %>
+</p>
+
+
+<%= link_to '编辑', edit_need_path(@need) %> |
+<%= link_to '返回', needs_path %>

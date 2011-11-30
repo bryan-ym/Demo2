@@ -1,0 +1,45 @@
+<%= form_for(@need) do |f| %>
+  <% if @need.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@need.errors.count, "error") %> prohibited this need from being saved:</h2>
+
+      <ul>
+      <% @need.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :productline %><br />
+    <%= f.text_field :productline %>
+  </div>
+  <div class="field">
+    <%= f.label :submitter %><br />
+    <%= f.text_field :submitter %>
+  </div>
+  <div class="field">
+    <%= f.label :s_phone %><br />
+    <%= f.text_field :s_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :s_address %><br />
+    <%= f.text_field :s_address %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
