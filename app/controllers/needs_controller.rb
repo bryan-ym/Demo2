@@ -1,4 +1,4 @@
-class NeedsController < ApplicationController
+﻿class NeedsController < ApplicationController
   # GET /needs
   # GET /needs.xml
   def index
@@ -35,13 +35,14 @@ class NeedsController < ApplicationController
   # GET /needs/1/edit
   def edit
     @need = Need.find(params[:id])
+      
   end
 
   # POST /needs
   # POST /needs.xml
   def create
     @need = Need.new(params[:need])
-
+    
     respond_to do |format|
       if @need.save
         format.html { redirect_to(@need, :notice => 'Need was successfully created.') }
