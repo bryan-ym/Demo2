@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  bg_status: MyString
+  bg_prdocutline: MyString
+
+two:
+  bg_status: MyString
+  bg_prdocutline: MyString

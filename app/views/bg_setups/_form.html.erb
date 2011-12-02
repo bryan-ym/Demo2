@@ -1,0 +1,25 @@
+<%= form_for(@bg_setup) do |f| %>
+  <% if @bg_setup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bg_setup.errors.count, "error") %> prohibited this bg_setup from being saved:</h2>
+
+      <ul>
+      <% @bg_setup.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bg_status %><br />
+    <%= f.text_field :bg_status %>
+  </div>
+  <div class="field">
+    <%= f.label :bg_prdocutline %><br />
+    <%= f.text_field :bg_prdocutline %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

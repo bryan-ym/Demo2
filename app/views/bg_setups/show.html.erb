@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Bg status:</b>
+  <%= @bg_setup.bg_status %>
+</p>
+
+<p>
+  <b>Bg prdocutline:</b>
+  <%= @bg_setup.bg_prdocutline %>
+</p>
+
+
+<%= link_to 'Edit', edit_bg_setup_path(@bg_setup) %> |
+<%= link_to 'Back', bg_setups_path %>

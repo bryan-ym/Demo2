@@ -1,0 +1,26 @@
+﻿<h1>后台设置</h1>
+
+<table>
+  <tr>
+    <th>需求状态</th>
+    <th>产品线</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bg_setups.each do |bg_setup| %>
+  <tr>
+    <td><%= bg_setup.bg_status %></td>
+    <td><%= bg_setup.bg_prdocutline %></td>
+    <td><%= link_to '查看', bg_setup %></td>
+    <td><%= link_to '编辑', edit_bg_setup_path(bg_setup) %></td>
+    <td><%= link_to '删除', bg_setup, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<!--%= link_to 'New Bg setup', new_bg_setup_path %--!>
+<%= link_to '返回主页', needs_path %>
