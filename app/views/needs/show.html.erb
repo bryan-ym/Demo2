@@ -1,5 +1,6 @@
 ﻿<p id="notice"><%= notice %></p>
-
+<h2> 原始需求记录</h2 >
+<hr>
 <p>
   <b>需求名称:</b>
   <%= @need.title %>
@@ -35,6 +36,24 @@
   <%= @need.status %>
 </p>
 
+</br>
+<h2> 需求澄清环节</h2 >
+<hr>
+
+<p>
+  <b>邀请参加评论人员:</b>
+  <%= @need.commentator %>
+</p>
+
+<p>
+  <b>需求评论记录:</b>
+  <%= @need.comment %>
+</p>
+
+<p>
+  <b>最终需求:</b>
+  <%= @need.finalreq %>
+</p>
 
 <%= link_to '编辑', edit_need_path(@need) %> |
 <%= link_to '返回', needs_path %>

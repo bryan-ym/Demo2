@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111125034725) do
+ActiveRecord::Schema.define(:version => 20111201061706) do
+
+  create_table "bg_setups", :force => true do |t|
+    t.string   "bg_status"
+    t.string   "bg_prdocutline"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "needs", :force => true do |t|
     t.string   "title"
@@ -22,6 +29,9 @@ ActiveRecord::Schema.define(:version => 20111125034725) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "commentator"
+    t.text     "comment"
+    t.text     "finalreq"
   end
 
 end

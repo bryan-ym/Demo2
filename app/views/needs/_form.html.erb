@@ -1,4 +1,4 @@
-<%= form_for(@need) do |f| %>
+﻿<%= form_for(@need) do |f| %>
   <% if @need.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@need.errors.count, "error") %> prohibited this need from being saved:</h2>
@@ -11,33 +11,57 @@
     </div>
   <% end %>
 
+<h2> 原始需求记录</h2 >
+<hr>
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label "需求名称" %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label "需求描述" %><br />
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :productline %><br />
-    <%= f.text_field :productline %>
+    <%= f.label "涉及产品线" %><br />
+    <!--%= f.text_field :productline %--!>
+    <%= f.select :productline, productline_list %>
   </div>
   <div class="field">
-    <%= f.label :submitter %><br />
+    <%= f.label "需求提出人姓名" %><br />
     <%= f.text_field :submitter %>
   </div>
   <div class="field">
-    <%= f.label :s_phone %><br />
+    <%= f.label "联系电话" %><br />
     <%= f.text_field :s_phone %>
   </div>
   <div class="field">
-    <%= f.label :s_address %><br />
+    <%= f.label "联系方式" %><br />
     <%= f.text_field :s_address %>
   </div>
   <div class="field">
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
+    <%= f.label "需求状态" %><br />
+    <%= f.select :status, reqstatus_list %>
+    <!--%= f.select (:status, ['草稿','待澄清','待评审','待分配']) %--!>
+  </div>
+  
+  </br>
+  
+  <!--%= @status_list %--!>
+  
+<h2> 需求澄清环节</h2 >
+<hr>
+  
+  <div class="field">
+    <%= f.label "邀请参加评论人员" %><br />
+    <%= f.text_field :commentator %>
+  </div>
+  <div class="field">
+    <%= f.label "需求评述" %><br />
+    <%= f.text_area :comment %>
+  </div>
+  <div class="field">
+    <%= f.label "最终需求" %><br />
+    <%= f.text_area :finalreq %>
   </div>
   <div class="actions">
     <%= f.submit %>

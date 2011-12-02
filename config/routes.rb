@@ -1,4 +1,6 @@
 Demo2::Application.routes.draw do
+  resources :bg_setups
+
   resources :needs
 
   # The priority is based upon order of creation:
