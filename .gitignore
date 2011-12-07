@@ -6,3 +6,4 @@ tmp/
 /Gemfile
 /Gemfile.lock
 /public/index.html
+/log
