@@ -82,7 +82,11 @@
     end
   end
   
- 
+ # GET /needs/1/clarify
+  def clarify
+    @need = Need.find(params[:id])
+    
+  end
   
   
 end
