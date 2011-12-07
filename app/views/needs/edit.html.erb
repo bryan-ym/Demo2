@@ -1,6 +1,15 @@
 ﻿<h2>编辑需求</h2>
 
-<%= render 'form' %>
+<!--%= render 'form' %-->
+
+<% if @need.status=="草稿" %>
+  <%= "目前是草稿" %>
+  <%= render 'form' %>
+<% elsif @need.status=="待澄清" %>
+  <%= render 'form' %>
+  <%= render 'clarify' %>
+<%end %>
+
 
 <%= link_to 'Show', @need %> |
 <%= link_to 'Back', needs_path %>

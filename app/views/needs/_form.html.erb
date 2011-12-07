@@ -45,25 +45,8 @@
   </div>
   
   </br>
-  
-  <!--%= @status_list %--!>
-  
-<h2> 需求澄清环节</h2 >
-<hr>
-  
-  <div class="field">
-    <%= f.label "邀请参加评论人员" %><br />
-    <%= f.text_field :commentator %>
-  </div>
-  <div class="field">
-    <%= f.label "需求评述" %><br />
-    <%= f.text_area :comment %>
-  </div>
-  <div class="field">
-    <%= f.label "最终需求" %><br />
-    <%= f.text_area :finalreq %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+<!--显示澄清的环节-->
+<!--%=render(:partial =>"clarify") %-->
+
 <% end %>
