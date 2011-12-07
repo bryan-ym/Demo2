@@ -1,4 +1,6 @@
 Demo2::Application.routes.draw do
+  get "needs/clarify"
+
   resources :bg_setups
 
   resources :needs
