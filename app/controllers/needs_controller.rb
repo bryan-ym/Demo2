@@ -88,5 +88,20 @@
     
   end
   
+  # GET /needs/1/submit
+  def submit
+    @need = Need.find(params[:id])
+    @need.status ="待澄清"
+    @need.save
+    
+  end
+  
+  # GET /needs/1/process
+  def chuli
+    @need = Need.find(params[:id])
+    
+  end
+  
+
   
 end
