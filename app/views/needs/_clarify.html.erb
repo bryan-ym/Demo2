@@ -9,12 +9,45 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %>  
 
-<h2> 需求澄清环节</h2 >
+<h2> 原始需求记录</h2 >
 <hr>
   
   <div class="field">
+    <%= f.label "需求名称" %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label "需求描述" %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label "涉及产品线" %><br />
+    <!--%= f.text_field :productline %--!>
+    <%= f.select :productline, productline_list %>
+  </div>
+  <div class="field">
+    <%= f.label "需求提出人姓名" %><br />
+    <%= f.text_field :submitter %>
+  </div>
+  <div class="field">
+    <%= f.label "联系电话" %><br />
+    <%= f.text_field :s_phone %>
+  </div>
+  <div class="field">
+    <%= f.label "联系方式" %><br />
+    <%= f.text_field :s_address %>
+  </div>
+  <div class="field">
+    <%= f.label "需求状态" %><br />
+    <%= f.select :status, reqstatus_list %>
+    <!--%= f.select (:status, ['草稿','待澄清','待评审','待分配']) %--!>
+  </div>
+
+<h2> 需求澄清记录</h2 >
+<hr>
+<div class="field">
     <%= f.label "邀请参加评论人员" %><br />
     <%= f.text_field :commentator %>
   </div>
@@ -26,7 +59,8 @@
     <%= f.label "最终需求" %><br />
     <%= f.text_area :finalreq %>
   </div>
+  
   <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit %>
+  </div> 
 <% end %>

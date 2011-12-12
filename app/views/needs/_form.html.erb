@@ -13,6 +13,7 @@
 
 <h2> 原始需求记录</h2 >
 <hr>
+  
   <div class="field">
     <%= f.label "需求名称" %><br />
     <%= f.text_field :title %>
@@ -43,10 +44,9 @@
     <%= f.select :status, reqstatus_list %>
     <!--%= f.select (:status, ['草稿','待澄清','待评审','待分配']) %--!>
   </div>
-  
-  </br>
 
-<!--显示澄清的环节-->
-<!--%=render(:partial =>"clarify") %-->
+  <div class="actions">
+    <%= f.submit %>
+  </div> 
 
-<% end %>
+<%end %>

@@ -1,12 +1,25 @@
 ﻿<!--编辑需求 -->
 
-<% if @need.status=="草稿" %>
+
+<% if @need.status.blank? or @need.status=="草稿" %>
   <%= render 'form' %>
+  
 <% elsif @need.status=="待澄清" %>
-  <%= render 'form' %>
   <%= render 'clarify' %>
-<%end %>
+
+<% elsif @need.status=="待评论" %>
 
 
-<%= link_to 'Show', @need %> |
-<%= link_to 'Back', needs_path %>
+<% end %>
+
+<%= puts "下面代码仅适用于提交澄清" %>
+<%= link_to '提交', :action=>'submit', :id=>@need.id %>
+
+<%= link_to '返回', needs_path %>
+
+
+<!--p> 下面这个更新按钮是保存整个页面 </p>
+
+<%= Form.create(self).submit %-->
+
+
