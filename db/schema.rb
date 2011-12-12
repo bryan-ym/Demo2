@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111201061706) do
+ActiveRecord::Schema.define(:version => 20111212070939) do
 
   create_table "bg_setups", :force => true do |t|
     t.string   "bg_status"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20111201061706) do
     t.string   "commentator"
     t.text     "comment"
     t.text     "finalreq"
+    t.boolean  "reviewornot"
+    t.string   "reviewer"
   end
 
 end
