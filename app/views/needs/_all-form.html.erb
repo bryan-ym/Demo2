@@ -1,0 +1,98 @@
+﻿<%= form_for(@need) do |f| %>
+  <% if @need.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@need.errors.count, "error") %> prohibited this need from being saved:</h2>
+
+      <ul>
+      <% @need.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>  
+
+<h2> 原始需求记录</h2 >
+<hr>
+  
+  <div class="field">
+    <%= f.label "需求名称" %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label "需求描述" %><br />
+    <%= f.text_area :description, :cols=>100, :rows=>2 %>
+  </div>
+  <div class="field">
+    <%= f.label "涉及产品线" %><br />
+    <!--%= f.text_field :productline %--!>
+    <%= f.select :productline, productline_list %>
+  </div>
+  <div class="field">
+    <%= f.label "需求提出人姓名" %><br />
+    <%= f.text_field :submitter %>
+  </div>
+  <div class="field">
+    <%= f.label "联系电话" %><br />
+    <%= f.text_field :s_phone %>
+  </div>
+  <div class="field">
+    <%= f.label "联系方式" %><br />
+    <%= f.text_field :s_address %>
+  </div>
+  <div class="field">
+    <%= f.label "需求状态" %><br />
+    <%= f.select :status, reqstatus_list %>
+    <!--%= f.select (:status, ['草稿','待澄清','待评审','待分配']) %--!>
+  </div>
+
+<h2> 需求澄清记录</h2 >
+<hr>
+<div class="field">
+    <%= f.label "邀请参加评论人员" %><br />
+    <%= f.text_field :commentator %>
+  </div>
+  <div class="field">
+    <%= f.label "需求评述" %><br />
+    <%= f.text_area :comment, :cols=>100, :rows=>2 %>
+  </div>
+  <div class="field">
+    <%= f.label "最终需求" %><br />
+    <%= f.text_area :finalreq, :cols=>100, :rows=>2 %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "是否需要总体组评审" %><br />
+    <%= f.radio_button :reviewornot, 'true'  %>"需要"<br />
+    <%= f.radio_button :reviewornot, 'false'  %>"不需要"<br />
+  </div>
+  
+<h2> 需求评审记录</h2 >
+<hr>
+<div class="field">
+    <%= f.label "评审人员名单" %><br />
+    <%= f.text_field :reviewer %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "需求评审历史记录(和后面的评审意见两者取其一)" %><br />
+    <%= f.text_area :r_opinion , :cols=>90, :rows=> 3,  :readonly => 'readonly' %>
+  </div>
+    
+  <div class="field">
+    <%= f.label "评审结论" %><br />
+    <%= f.radio_button :r_conclusion, '通过' %>通过<br/>
+    <%= f.radio_button :r_conclusion, '保留通过' %>保留通过<br/>
+    <%= f.radio_button :r_conclusion, '不通过' %>不通过<br/>
+  </div>
+  
+  <div class="field">
+    <%= f.label "最终评审结果" %><br />
+    <%= f.radio_button :r_result, '通过' %>通过<br/>
+    <%= f.radio_button :r_result, '保留通过' %>保留通过<br/>
+    <%= f.radio_button :r_result, '不通过' %>不通过<br/>
+  </div>
+  
+<h2> 需求分配记录(Blank)</h2 >
+<hr>
+
+<% end %>
