@@ -11,4 +11,10 @@
     @status_list=@background_setup.bg_status.split(/、/)
     
   end
+  
+  def get_req_status
+    @need = Need.find(params[:id])
+    @need.status
+    
+  end
 end

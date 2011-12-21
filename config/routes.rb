@@ -2,6 +2,7 @@ Demo2::Application.routes.draw do
   get "needs/clarify"
   get "needs/submit"
   get "needs/chuli"
+  get "needs/showall"
 
   resources :bg_setups
 

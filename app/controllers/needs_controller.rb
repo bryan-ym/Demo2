@@ -1,4 +1,5 @@
 ﻿class NeedsController < ApplicationController
+  
   # GET /needs
   # GET /needs.xml
   def index
@@ -91,7 +92,20 @@
   # GET /needs/1/submit
   def submit
     @need = Need.find(params[:id])
-    @need.status ="待澄清"
+    if @need.status.blank? or @need.status=="草稿"
+      @need.status ="待澄清"
+      
+    elsif @need.status =="待澄清" or @need.status=="待评论"
+      @need.status="待评审"
+      
+    elsif @need.status =="待评审"
+      @need.status="待分配"
+      
+    elsif @need.status =="待分配"
+      @need.status="已关闭"  
+    else
+     
+    end
     @need.save
     
   end
@@ -102,6 +116,9 @@
     
   end
   
-
+ def showall
+    @need = Need.find(params[:id])
+    
+  end
   
 end
