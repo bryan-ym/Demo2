@@ -7,3 +7,4 @@ tmp/
 /Gemfile.lock
 /public/index.html
 /log
+/config/initializers/site_keys.rb

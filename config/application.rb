@@ -1,4 +1,4 @@
-require File.expand_path('../boot', __FILE__)
+﻿require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
@@ -13,7 +13,10 @@ module Demo2
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    # config.autoload_paths += %W(#{config.root}/extras)
+     config.autoload_paths += %W(#{config.root}/extras)
+    #单个文件夹和所有文件目录  
+      config.autoload_paths += Dir["#{config.root}/lib/**/"]  
+      config.autoload_paths += Dir["#{config.root}/lib", "#{config.root}/lib/**/"]  
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -38,5 +41,9 @@ module Demo2
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    
+    #按restful-authenticated要求增加的路由
+    config.active_record.observers = :user_observer
+    
   end
 end

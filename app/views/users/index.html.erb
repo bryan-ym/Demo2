@@ -1,0 +1,30 @@
+﻿<div id="user_list">
+<h1>用户列表</h1>
+<hr/>
+<br/>
+
+
+<table>
+  <tr>
+    <th>SN</th>
+    <th>用户名</th>
+    <th>邮箱地址</th>
+    <th>login?</th>
+    
+    
+  </tr>
+
+<% @users.each do |user| %>
+  <tr class="<%=cycle('list_line_odd','list_line_even') %>">
+    <td><%= user.id %></td>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.login %></td>
+  
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to '返回', needs_path %>

@@ -6,8 +6,9 @@
 
   def append_review
   #@need = Need.find(3)
+  if !self.comment.nil?  
     self.comment=self.comment+"\n"+newcomment.to_s+"-User Name"+"-Date/Time"
-    
+  end  
   end
   
 end
