@@ -1,4 +1,5 @@
 ﻿class NeedsController < ApplicationController
+  before_filter :login_required
   
   # GET /needs
   # GET /needs.xml

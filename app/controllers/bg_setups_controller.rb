@@ -1,4 +1,6 @@
 class BgSetupsController < ApplicationController
+  before_filter :login_required
+  
   # GET /bg_setups
   # GET /bg_setups.xml
   def index

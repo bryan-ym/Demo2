@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+ # before_filter :login_required
+  
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
   

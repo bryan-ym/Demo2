@@ -1,8 +1,8 @@
-<% if logged_in? -%>
-  <div id="user-bar-greeting">Logged in as <%= link_to_current_user :content_method => :login %></div>
-  <div id="user-bar-action"  >(<%= link_to "Log out", logout_path, { :title => "Log out" }    %>)</div>
+﻿<% if logged_in? -%>
+  <div id="user-bar-greeting">当前用户: <%= link_to_current_user :content_method => :login %></div>
+  <div id="user-bar-action"  >(<%= link_to "注销", logout_path, { :title => "Log out" }    %>)</div>
 <% else -%>
-  <div id="user-bar-greeting"><%= link_to_login_with_IP 'Not logged in', :style => 'border: none;' %></div>
-  <div id="user-bar-action"  ><%= link_to "Log in",  login_path,  { :title => "Log in" } %> /
-                               <%= link_to "Sign up", signup_path, { :title => "Create an account" } %></div>
+  <div id="user-bar-greeting"><%= link_to_login_with_IP '未登录', :style => 'border: none;' %></div>
+  <div id="user-bar-action"  ><%= link_to "登录",  login_path,  { :title => "Log in" } %> /
+                               <%= link_to "注册新账户", signup_path, { :title => "Create an account" } %></div>
 <% end -%>

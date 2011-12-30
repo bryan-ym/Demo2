@@ -9,7 +9,7 @@
     <th>SN</th>
     <th>用户名</th>
     <th>邮箱地址</th>
-    <th>login?</th>
+    <th>角色</th>
     
     
   </tr>
@@ -17,10 +17,9 @@
 <% @users.each do |user| %>
   <tr class="<%=cycle('list_line_odd','list_line_even') %>">
     <td><%= user.id %></td>
-    <td><%= user.name %></td>
-    <td><%= user.email %></td>
     <td><%= user.login %></td>
-  
+    <td><%= user.email %></td>
+    <td><%= user.admin_flag ? "管理员" : "用户"  %></td>
   </tr>
 <% end %>
 </table>

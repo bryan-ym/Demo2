@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111229065829) do
+ActiveRecord::Schema.define(:version => 20111230035420) do
 
   create_table "bg_setups", :force => true do |t|
     t.string   "bg_status"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20111229065829) do
     t.datetime "updated_at"
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
+    t.boolean  "admin_flag",                               :default => false, :null => false
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
