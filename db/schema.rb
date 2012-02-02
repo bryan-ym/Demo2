@@ -10,13 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111230035420) do
+ActiveRecord::Schema.define(:version => 20120109025514) do
 
   create_table "bg_setups", :force => true do |t|
     t.string   "bg_status"
     t.string   "bg_prdocutline"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "bg_role"
+    t.string   "bg_dept1"
+    t.string   "bg_dept2"
   end
 
   create_table "needs", :force => true do |t|
@@ -39,6 +42,13 @@ ActiveRecord::Schema.define(:version => 20111230035420) do
     t.string   "r_result"
   end
 
+  create_table "needs_users", :id => false, :force => true do |t|
+    t.integer "need_id", :null => false
+    t.integer "user_id", :null => false
+  end
+
+  add_index "needs_users", ["need_id", "user_id"], :name => "index_needs_users_on_need_id_and_user_id", :unique => true
+
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40
     t.string   "name",                      :limit => 100, :default => ""
@@ -50,6 +60,9 @@ ActiveRecord::Schema.define(:version => 20111230035420) do
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
     t.boolean  "admin_flag",                               :default => false, :null => false
+    t.string   "role"
+    t.string   "dept1"
+    t.string   "dept2"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true

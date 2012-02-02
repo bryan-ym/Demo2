@@ -1,21 +1,31 @@
 ﻿<h1>后台设置</h1>
 
 <table>
-  <tr>
-    <th>需求状态</th>
-    <th>产品线</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @bg_setups.each do |bg_setup| %>
   <tr>
-    <td><%= bg_setup.bg_status %></td>
-    <td><%= bg_setup.bg_prdocutline %></td>
     <td><%= link_to '查看', bg_setup %></td>
     <td><%= link_to '编辑', edit_bg_setup_path(bg_setup) %></td>
     <td><%= link_to '删除', bg_setup, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <tr>
+    <th>需求状态</th>
+    <td><%= bg_setup.bg_status %></td>
+  </tr>
+  <tr>
+    <th>产品线</th>
+    <td><%= bg_setup.bg_prdocutline %></td>
+  </tr>
+  <tr>
+    <th>角色</th>
+    <td><%= bg_setup.bg_role %></td>
+  </tr>
+  <tr>
+    <th>全职部门</th>
+    <td><%= bg_setup.bg_dept1 %></td>
+  </tr>
+  <tr>
+    <th>兼职部门</th>
+    <td><%= bg_setup.bg_dept2 %></td>   
   </tr>
 <% end %>
 </table>

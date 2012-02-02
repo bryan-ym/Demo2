@@ -17,4 +17,16 @@
     @need.status
     
   end
+  
+  def role_list
+    @background_setup=BgSetup.find(1)
+    @role_list=@background_setup.bg_role.split(/、/)
+    
+  end
+  
+  def dept1_list
+    @background_setup=BgSetup.find(1)
+    @dept1_list=@background_setup.bg_dept1.split(/、/)
+    
+  end
 end

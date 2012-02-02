@@ -11,6 +11,15 @@
     </div>
   <% end %>  
 
+<html> 
+<head> 
+<style>   input   {   oreadonly:expression(this.readOnly=true);   }   
+</style> 
+</head> 
+
+
+<%# if current_user.admin? %>
+
 <h2> 原始需求记录</h2 >
 <hr>
   
@@ -44,6 +53,8 @@
     <%= f.select :status, reqstatus_list %>
     <!--%= f.select (:status, ['草稿','待澄清','待评审','待分配']) %--!>
   </div>
+  
+  <%#end%>  #判断当前用户角色是否可以更新上述字段
 
 <h2> 需求澄清记录</h2 >
 <hr>

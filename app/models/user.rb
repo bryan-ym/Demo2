@@ -1,6 +1,8 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
+  has_and_belongs_to_many :needs
+  
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken
@@ -50,6 +52,7 @@ class User < ActiveRecord::Base
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
   end
+
 
   protected
     

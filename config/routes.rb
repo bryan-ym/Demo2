@@ -21,6 +21,7 @@ Demo2::Application.routes.draw do
   resources :bg_setups
 
   resources :needs
+  resources :needs_users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

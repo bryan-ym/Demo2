@@ -1,11 +1,16 @@
 ﻿class NeedsController < ApplicationController
   before_filter :login_required
+
   
   # GET /needs
   # GET /needs.xml
   def index
-    @needs = Need.all
-
+    if current_user.login.downcase=="admin"
+      @needs=Need.all
+    else
+      @needs=current_user.needs
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @needs }
@@ -27,7 +32,8 @@
   # GET /needs/new.xml
   def new
     @need = Need.new
-
+    #add_user
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @need }
@@ -47,6 +53,7 @@
     
     respond_to do |format|
       if @need.save
+        add_user
         format.html { redirect_to(@need, :notice => 'Need was successfully created.') }
         format.xml  { render :xml => @need, :status => :created, :location => @need }
       else
@@ -63,6 +70,7 @@
 
     respond_to do |format|
       if @need.update_attributes(params[:need])
+        add_user
         format.html { redirect_to(@need, :notice => 'Need was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -122,4 +130,17 @@
     
   end
   
+  def add_user
+      @user=current_user
+      #@need = Need.find(params[:id])
+      unless @need.had_user?(@user)
+        @need.users<<@user
+        flash[:notice] = '用户已经成功加入当前需求中'
+      else
+        flash[:error] = '当前需求中已包含当前用户'
+      end
+   #   redirect_to :action => :courses, :id => @student
+      
+  end
+    
 end

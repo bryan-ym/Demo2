@@ -8,18 +8,28 @@
   <tr>
     <th>SN</th>
     <th>用户名</th>
-    <th>邮箱地址</th>
+    <th>所属产品线</th>
     <th>角色</th>
-    
-    
+    <th>全职部门</th>
+    <th>兼职部门</th>
+    <th>管理员</th>
+    <th>邮箱地址</th>
+    <th>编辑</th>
+   
   </tr>
 
 <% @users.each do |user| %>
   <tr class="<%=cycle('list_line_odd','list_line_even') %>">
     <td><%= user.id %></td>
     <td><%= user.login %></td>
-    <td><%= user.email %></td>
+    <td><%#= user.productline  %></td>
+    <td><%= user.role %></td>
+    <td><%= user.dept1 %></td>
+    <td><%= user.dept2 %></td>
     <td><%= user.admin_flag ? "管理员" : "用户"  %></td>
+    <td><%= user.email %></td>
+    <td><%= link_to"编辑", edit_user_path(user) %></td>
+    <td><%#= user.admin_flag %></td>
   </tr>
 <% end %>
 </table>

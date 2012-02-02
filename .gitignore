@@ -8,3 +8,6 @@ tmp/
 /public/index.html
 /log
 /config/initializers/site_keys.rb
+/app/controllers/needs_users_controller.rb
+/app/models/needs_user.rb
+/app/views/needs_users
