@@ -1,0 +1,54 @@
+﻿<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>  
+
+<h2> 用户信息</h2 >
+<hr>
+  <div class="field">
+    <%= f.label "用户ID" %><br />
+    <%= f.text_field :id %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "用户名" %><br />
+    <%= f.text_field :login %>
+  </div>
+  <div class="field">
+    <%= f.label "所属产品线" %><br />
+    <%#= f.select :productline, productline_list %>  #need to modify
+  </div>
+  <div class="field">
+    <%= f.label "角色" %><br />
+    <!--%= f.text_field :productline %--!>
+    <%= f.select :role, role_list %>
+  </div>
+  <div class="field">
+    <%= f.label "全职部门" %><br />
+    <%= f.select :dept1, dept1_list %>
+  </div>
+  <div class="field">
+    <%= f.label "兼职部门（适用于矩阵结构）" %><br />
+    <%= f.select :dept2, dept1_list %>
+  </div>
+  <div class="field">
+    <%= f.label "是否管理员" %><br />
+    <%= f.text_field :admin_flag %>
+  </div>
+  <div class="field">
+    <%= f.label "邮箱地址" %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>  
