@@ -1,23 +1,34 @@
 ﻿<!--处理需求,在学习Rails的让控制器选择章节好像可以将视图的选择交由控制器处理 -->
+<%= error_messages_for :need %>
+<% form_for :need, :url=>need_path(@need)  do |form| -%>
 
 
 <% if @need.status.nil? or @need.status=="草稿" %>
-  <%= render 'form' %>
+  <%= render :partial=>'form',  :locals=> {:form=> form} %>
   
 <% elsif @need.status=="待澄清" %>
-  <%= render 'clarify' %>
-
+  <%= render :partial=>'form',  :locals=> {:form=> form} %>
+  <%= render :partial=>'clarify',  :locals=> {:form=> form} %>
+  
 <% elsif @need.status=="待评论" %>
-  <%= render 'clarify' %>
+  <%= render :partial=>'form', :locals=> {:form=> form} %>
+  <%= render :partial=>'clarify', :locals=> {:form=> form} %>
 
 <% elsif @need.status=="待评审" %>
-  <%= render 'review' %>
+  <%= render :partial=>'form',  :locals=> {:form=> form} %>
+  <%= render :partial=>'clarify',  :locals=> {:form=> form} %>
+  <%= render :partial=>'review',  :locals=> {:form=> form} %>
 
 <% elsif @need.status=="待分配" %>
   <%= render 'all-form' %>
 
 <% end %>
 
+
+  <div class="actions">
+    <%= submit_tag "保存" %>
+  </div> 
+  
 <hr>
 <p> 下面代码仅适用于提交澄清 </p>
 
@@ -25,3 +36,4 @@
 
 <%= link_to '返回', needs_path %>
 
+<% end %>

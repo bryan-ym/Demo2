@@ -1,12 +1,14 @@
 ﻿<!--编辑需求 -->
+<% form_for :need, :url=> needs_path do |form| -%>
 
 <% if @need.status=="草稿" %>
-  <%= render 'form' %>
+  <%= render :partial=>'form',  :locals=> {:form=> form} %>
 <% elsif @need.status=="待澄清" %>
-  <%= render 'form' %>
-  <%= render 'clarify' %>
+  <%= render :partial=>'form',  :locals=> {:form=> form} %>
+  <%= render :partial=>'fclarify',  :locals=> {:form=> form} %>
 <%end %>
 
 
 <%= link_to 'Show', @need %> 
 <%= link_to '返回', needs_path %>
+<% end %>

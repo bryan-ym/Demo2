@@ -1,4 +1,4 @@
-﻿<%= form_for(@need) do |f| %>
+﻿
   <% if @need.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@need.errors.count, "error") %> prohibited this need from being saved:</h2>
@@ -11,9 +11,6 @@
     </div>
   <% end %>  
 
-<!--h2> 原始需求记录</h2 -->
-
-    <%= render 'form' %>
 
 <h2> 需求澄清记录</h2 >
 <hr>
@@ -45,4 +42,8 @@
     <%= f.label "需求状态" %><br />
     <%= f.select :status, reqstatus_list %>
   </div>
-<% end %>
+  
+   <div class="actions">
+    <%= f.submit %>
+  </div> 
+  

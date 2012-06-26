@@ -1,25 +1,36 @@
 ﻿<!--编辑需求 -->
 
+<% form_for(@need) do |f|  %>
 
 <% if @need.status.blank? or @need.status=="草稿" %>
-  <%= render 'form' %>
+  <%= render :partial=>'form1' %>
   
 <% elsif @need.status=="待澄清" %>
-  <%= render 'clarify' %>
+  <%= render :partial=>'form', :locals=>{:f=>f} %>
+  <%= render :partial=>'clarify' , :locals=>{:f=>f} %>
 
-<% elsif @need.status=="待评论" %>
+<!--% elsif @need.status=="待评论" %-->
 
 
 <% end %>
 
-<%= puts "下面代码仅适用于提交澄清" %>
-<%= link_to '提交', :action=>'submit', :id=>@need.id %>
+
+<!--p> 下面这个更新按钮是保存整个页面 </p-->
+
+<%#= f.submit %>
+
+
+  <div class="actions">
+    <%= submit_tag "保存" %>
+  </div> 
+
+<% end %>
+
 
 <%= link_to '返回', needs_path %>
 
 
-<!--p> 下面这个更新按钮是保存整个页面 </p>
 
-<%= Form.create(self).submit %-->
+
 
 
