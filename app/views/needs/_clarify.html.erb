@@ -17,6 +17,7 @@
 <div class="field">
     <%= f.label "评论人员名单" %><br />
     <%= f.text_field :commentator %>
+    <a href="javascript:window.open('/help','','toolbar=no,scrollbar=no');">help</a><br/> 
   </div>
   
   <div class="field">
@@ -37,13 +38,4 @@
     <%= f.label "最终需求" %><br />
     <%= f.text_area :finalreq , :cols=>90, :rows=> 3 %>
   </div>
-  
-  <div class="field">
-    <%= f.label "需求状态" %><br />
-    <%= f.select :status, reqstatus_list %>
-  </div>
-  
-   <div class="actions">
-    <%= f.submit %>
-  </div> 
-  
+ 

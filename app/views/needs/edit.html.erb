@@ -3,7 +3,7 @@
 <% form_for(@need) do |f|  %>
 
 <% if @need.status.blank? or @need.status=="草稿" %>
-  <%= render :partial=>'form1' %>
+  <%= render :partial=>'form', :locals=>{:f=>f}  %>
   
 <% elsif @need.status=="待澄清" %>
   <%= render :partial=>'form', :locals=>{:f=>f} %>
