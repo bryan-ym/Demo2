@@ -15,6 +15,7 @@
     <th>管理员</th>
     <th>邮箱地址</th>
     <th>编辑</th>
+    <th>删除</th>
    
   </tr>
 
@@ -29,6 +30,7 @@
     <td><%= user.admin_flag ? "管理员" : "用户"  %></td>
     <td><%= user.email %></td>
     <td><%= link_to"编辑", edit_user_path(user) %></td>
+    <td><%= link_to"删除", user, :confirm => 'Are you sure?', :method => :delete %></td>
     <td><%#= user.admin_flag %></td>
   </tr>
 <% end %>

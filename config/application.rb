@@ -1,6 +1,7 @@
 ﻿require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+#require '..\vendor/plugins/restful-authentication/init.rb'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
@@ -13,6 +14,7 @@ module Demo2
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
+    #根据夜明猪博客内容增加，用于加载插件目录中的init.rb，默认rails3不会自动加载
      config.autoload_paths += %W(#{config.root}/extras)
     #单个文件夹和所有文件目录  
       config.autoload_paths += Dir["#{config.root}/lib/**/"]  
@@ -21,7 +23,8 @@ module Demo2
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
-
+     config.plugins = [ :all ]
+     
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 

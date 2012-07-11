@@ -1,4 +1,9 @@
 /* Global styles */
+/*
+ * ...
+ *= require lazybox
+ * ...
+ */
 
 #store #notice {
         color: #000;

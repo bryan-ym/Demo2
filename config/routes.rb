@@ -1,5 +1,7 @@
 Demo2::Application.routes.draw do
   resources :users
+  resources :needs
+  resources :needs_users
 
   resource :session, :only => [:new, :create, :destroy]
 
@@ -20,8 +22,7 @@ Demo2::Application.routes.draw do
 
   resources :bg_setups
 
-  resources :needs
-  resources :needs_users
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
