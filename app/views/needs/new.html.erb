@@ -1,9 +1,5 @@
-﻿<h2>创建原始需求</h2>
-<% form_for :need, :url=> needs_path do |form| -%>
-<%= render :partial=>'form', :locals=> {:f=> form} %>
-  <div class="actions">
-    <%= submit_tag "保存" %>
-  </div> 
-<%= link_to '提交', :action=>'submit', :id=>@need.id %>
-<%= link_to 'Back', needs_path %>
-<% end %>
+﻿<h1>新建需求</h1>
+
+<%= render 'form' %>
+
+<%= link_to '返回', needs_path %>

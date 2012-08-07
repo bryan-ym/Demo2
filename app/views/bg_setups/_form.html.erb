@@ -1,4 +1,4 @@
-<%= form_for(@bg_setup) do |f| %>
+﻿<%= form_for(@bg_setup) do |f| %>
   <% if @bg_setup.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bg_setup.errors.count, "error") %> prohibited this bg_setup from being saved:</h2>
@@ -12,24 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :bg_status %><br />
+    <%= f.label "需求状态" %><br />
     <%= f.text_field :bg_status %>
   </div>
   <div class="field">
-    <%= f.label :bg_prdocutline %><br />
-    <%= f.text_field :bg_prdocutline %>
+    <%= f.label "产品线" %><br />
+    <%= f.text_field :bg_productline %>
   </div>
-   <div class="field">
-    <%= f.label :bg_role %><br />
+  <div class="field">
+    <%= f.label "角色" %><br />
     <%= f.text_field :bg_role %>
   </div>
   <div class="field">
-    <%= f.label :bg_dept1 %><br />
-    <%= f.text_field :bg_dept1 %>
-  </div>
-  <div class="field">
-    <%= f.label :bg_dept2 %><br />
-    <%= f.text_field :bg_dept2 %>
+    <%= f.label "部门" %><br />
+    <%= f.text_field :br_dept1 %>
   </div>
   <div class="actions">
     <%= f.submit %>

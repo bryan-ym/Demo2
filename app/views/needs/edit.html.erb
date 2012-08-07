@@ -1,36 +1,6 @@
-﻿<!--编辑需求 -->
+﻿<h1>编辑需求</h1>
 
-<% form_for(@need) do |f|  %>
+<%= render 'form' %>
 
-<% if @need.status.blank? or @need.status=="草稿" %>
-  <%= render :partial=>'form', :locals=>{:f=>f}  %>
-  
-<% elsif @need.status=="待澄清" %>
-  <%= render :partial=>'form', :locals=>{:f=>f} %>
-  <%= render :partial=>'clarify' , :locals=>{:f=>f} %>
-
-<!--% elsif @need.status=="待评论" %-->
-
-
-<% end %>
-
-
-<!--p> 下面这个更新按钮是保存整个页面 </p-->
-
-<%#= f.submit %>
-
-
-  <div class="actions">
-    <%= submit_tag "保存" %>
-  </div> 
-
-<% end %>
-
-
+<%= link_to '查看', @need %> |
 <%= link_to '返回', needs_path %>
-
-
-
-
-
-

@@ -1,146 +1,83 @@
-﻿class NeedsController < ApplicationController
-  before_filter :login_required
-
-  
+class NeedsController < ApplicationController
   # GET /needs
-  # GET /needs.xml
+  # GET /needs.json
   def index
-    if current_user.login.downcase=="admin"
-      @needs=Need.all
-    else
-      @needs=current_user.needs
-    end
-    
+    @needs = Need.all
+
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @needs }
+      format.json { render json: @needs }
     end
   end
 
   # GET /needs/1
-  # GET /needs/1.xml
+  # GET /needs/1.json
   def show
     @need = Need.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @need }
+      format.json { render json: @need }
     end
   end
 
   # GET /needs/new
-  # GET /needs/new.xml
+  # GET /needs/new.json
   def new
     @need = Need.new
-    #add_user
-    
+
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @need }
+      format.json { render json: @need }
     end
   end
 
   # GET /needs/1/edit
   def edit
     @need = Need.find(params[:id])
-    
   end
 
   # POST /needs
-  # POST /needs.xml
+  # POST /needs.json
   def create
     @need = Need.new(params[:need])
-    
+
     respond_to do |format|
       if @need.save
-        add_user
-        format.html { redirect_to(@need, :notice => 'Need was successfully created.') }
-        format.xml  { render :xml => @need, :status => :created, :location => @need }
+        format.html { redirect_to @need, notice: 'Need was successfully created.' }
+        format.json { render json: @need, status: :created, location: @need }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @need.errors, :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.json { render json: @need.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PUT /needs/1
-  # PUT /needs/1.xml
+  # PUT /needs/1.json
   def update
     @need = Need.find(params[:id])
 
     respond_to do |format|
       if @need.update_attributes(params[:need])
-        add_user
-        format.html { redirect_to(@need, :notice => 'Need was successfully updated.') }
-        format.xml  { head :ok }
+        format.html { redirect_to @need, notice: 'Need was successfully updated.' }
+        format.json { head :no_content }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @need.errors, :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.json { render json: @need.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /needs/1
-  # DELETE /needs/1.xml
+  # DELETE /needs/1.json
   def destroy
     @need = Need.find(params[:id])
     @need.destroy
 
     respond_to do |format|
-      format.html { redirect_to(needs_url) }
-      format.xml  { head :ok }
+      format.html { redirect_to needs_url }
+      format.json { head :no_content }
     end
   end
-  
- # GET /needs/1/clarify
-  def clarify
-    @need = Need.find(params[:id])
-    
-  end
-  
-  # GET /needs/1/submit
-  def submit
-    @need = Need.find(params[:id])
-    if @need.status.blank? or @need.status=="草稿"
-      @need.status ="待澄清"
-      
-    elsif @need.status =="待澄清" or @need.status=="待评论"
-      @need.status="待评审"
-      
-    elsif @need.status =="待评审"
-      @need.status="待分配"
-      
-    elsif @need.status =="待分配"
-      @need.status="已关闭"  
-    else
-     
-    end
-    @need.save
-    
-  end
-  
-  # GET /needs/1/process
-  def chuli
-    @need = Need.find(params[:id])
-    
-  end
-  
- def showall
-    @need = Need.find(params[:id])
-    
-  end
-  
-  def add_user
-      @user=current_user
-      #@need = Need.find(params[:id])
-      unless @need.had_user?(@user)
-        @need.users<<@user
-        flash[:notice] = '用户已经成功加入当前需求中'
-      else
-        flash[:error] = '当前需求中已包含当前用户'
-      end
-   #   redirect_to :action => :courses, :id => @student
-      
-  end
-    
 end

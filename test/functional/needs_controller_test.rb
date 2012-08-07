@@ -18,30 +18,30 @@ class NeedsControllerTest < ActionController::TestCase
 
   test "should create need" do
     assert_difference('Need.count') do
-      post :create, :need => @need.attributes
+      post :create, need: { description: @need.description, final_req: @need.final_req, status: @need.status, submitter: @need.submitter, submitter_info: @need.submitter_info, title: @need.title }
     end
 
     assert_redirected_to need_path(assigns(:need))
   end
 
   test "should show need" do
-    get :show, :id => @need.to_param
+    get :show, id: @need
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => @need.to_param
+    get :edit, id: @need
     assert_response :success
   end
 
   test "should update need" do
-    put :update, :id => @need.to_param, :need => @need.attributes
+    put :update, id: @need, need: { description: @need.description, final_req: @need.final_req, status: @need.status, submitter: @need.submitter, submitter_info: @need.submitter_info, title: @need.title }
     assert_redirected_to need_path(assigns(:need))
   end
 
   test "should destroy need" do
     assert_difference('Need.count', -1) do
-      delete :destroy, :id => @need.to_param
+      delete :destroy, id: @need
     end
 
     assert_redirected_to needs_path

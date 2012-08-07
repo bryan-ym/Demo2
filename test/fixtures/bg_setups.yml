@@ -1,9 +1,13 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
   bg_status: MyString
-  bg_prdocutline: MyString
+  bg_productline: MyString
+  bg_role: MyString
+  br_dept1: MyString
 
 two:
   bg_status: MyString
-  bg_prdocutline: MyString
+  bg_productline: MyString
+  bg_role: MyString
+  br_dept1: MyString

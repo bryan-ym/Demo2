@@ -1,28 +1,24 @@
-﻿<div id="need_list">
+﻿<div id="need_list">     <!--此处调用了RMP.CSS中定义的畸偶显示格式。在application.html.erb中还要引用RMP.CSS-->
 <h1>需求列表</h1>
 <%= link_to '配置后台数据', bg_setups_path %>
-<%= link_to '查看中间表数据', needs_users_path %>
-<%= link_to '查看用户列表', users_path %>
+<%#= link_to '查看中间表数据', needs_users_path %>
+<%#= link_to '查看用户列表', users_path %>
 <hr/>
 <%= button_to '新建需求', new_need_path, :method => :get  %>
-
 <br/>
-
 
 <table>
   <tr>
     <th>SN</th>
     <th>需求名称</th>
     <th>需求描述</th>
-    <th>涉及产品线</th>
-    <th>需求提交者</th>
-    <th>联系电话</th>
-    <th>联系方式</th>
+    <th>提交人</th>
+    <th>提交人信息</th>
+    <th>最终需求描述</th>
     <th>需求状态</th>
-    <th colspan="4">操作</th>
-    <th>测试</th>
-    <th>Show</th>
-    
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
 <% @needs.each do |need| %>
@@ -30,17 +26,13 @@
     <td><%= need.id %></td>
     <td><%= need.title %></td>
     <td><%= truncate(strip_tags(need.description),:length=>10) %></td>
-    <td><%= need.productline %></td>
     <td><%= need.submitter %></td>
-    <td><%= need.s_phone %></td>
-    <td><%= need.s_address %></td>
+    <td><%= need.submitter_info %></td>
+    <td><%= need.final_req %></td>
     <td><%= need.status %></td>
     <td><%= link_to '查看', need %></td>
     <td><%= link_to '编辑', edit_need_path(need) %></td>
-    <td><%= link_to '处理', :action=>'chuli', :id=>need.id %></td>
-    <td><%= link_to '删除', need, :confirm => 'Are you sure?', :method => :delete %></td>
-    <td><%= link_to '评审', :action=>'clarify', :id=>need.id %></td>
-    <td><%= link_to '完整', :action=>'showall', :id=>need.id %></td>
+    <td><%= link_to '删除', need, method: :delete, data: { confirm: '需求将永久删除，你确定吗?' } %></td>
   
   </tr>
 <% end %>

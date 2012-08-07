@@ -1,0 +1,29 @@
+﻿<h1>Listing bg_setups</h1>
+
+<table>
+  <tr>
+    <th>Bg status</th>
+    <th>Bg productline</th>
+    <th>Bg role</th>
+    <th>Br dept1</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bg_setups.each do |bg_setup| %>
+  <tr>
+    <td><%= bg_setup.bg_status %></td>
+    <td><%= bg_setup.bg_productline %></td>
+    <td><%= bg_setup.bg_role %></td>
+    <td><%= bg_setup.br_dept1 %></td>
+    <td><%= link_to 'Show', bg_setup %></td>
+    <td><%= link_to 'Edit', edit_bg_setup_path(bg_setup) %></td>
+    <td><%= link_to 'Destroy', bg_setup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bg setup', new_bg_setup_path %>

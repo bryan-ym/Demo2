@@ -18,30 +18,30 @@ class BgSetupsControllerTest < ActionController::TestCase
 
   test "should create bg_setup" do
     assert_difference('BgSetup.count') do
-      post :create, :bg_setup => @bg_setup.attributes
+      post :create, bg_setup: { bg_productline: @bg_setup.bg_productline, bg_role: @bg_setup.bg_role, bg_status: @bg_setup.bg_status, br_dept1: @bg_setup.br_dept1 }
     end
 
     assert_redirected_to bg_setup_path(assigns(:bg_setup))
   end
 
   test "should show bg_setup" do
-    get :show, :id => @bg_setup.to_param
+    get :show, id: @bg_setup
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => @bg_setup.to_param
+    get :edit, id: @bg_setup
     assert_response :success
   end
 
   test "should update bg_setup" do
-    put :update, :id => @bg_setup.to_param, :bg_setup => @bg_setup.attributes
+    put :update, id: @bg_setup, bg_setup: { bg_productline: @bg_setup.bg_productline, bg_role: @bg_setup.bg_role, bg_status: @bg_setup.bg_status, br_dept1: @bg_setup.br_dept1 }
     assert_redirected_to bg_setup_path(assigns(:bg_setup))
   end
 
   test "should destroy bg_setup" do
     assert_difference('BgSetup.count', -1) do
-      delete :destroy, :id => @bg_setup.to_param
+      delete :destroy, id: @bg_setup
     end
 
     assert_redirected_to bg_setups_path
